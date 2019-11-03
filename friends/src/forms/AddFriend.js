@@ -1,53 +1,52 @@
 import React, { useState } from "react";
 import api from "../utils/api";
 
-function RegisterForm() {
-  const [error, setError] = useState();
-  const [user, setUser] = useState({
+function AddFriend() {
+  const [newFriend, setNewFriend] = useState({
     name: "",
     age: "",
     email: ""
   });
 
   const handleChange = e => {
-    setUser({ ...user, [e.target.name]: e.target.value });
+    setNewFriend({ ...newFriend, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = e => {
     e.preventDefault();
 
     api()
-      .post("/api/login", user)
+      .post("/api/friends", newFriend)
       .then(result => {
-        localStorage.setItem("token", result.data.token);
+        console.log(result.data);
       })
       .catch(err => {
-        setError(err.response.data.message);
+        console.log(err);
       });
+    setNewFriend({ name: "", age: "", email: "" });
   };
 
-  console.log(user, "user");
+  console.log(newFriend, "user");
   return (
     <form onSubmit={handleSubmit}>
-      {error && <div className="error">{error}</div>}
       <input
         type="text"
         name="name"
-        value={user.name}
+        value={newFriend.name}
         placeholder="Enter Name"
         onChange={handleChange}
       />
       <input
         type="text"
         name="age"
-        value={user.age}
+        value={newFriend.age}
         placeholder="Enter Age"
         onChange={handleChange}
       />
       <input
         type="email"
         name="email"
-        value={user.email}
+        value={newFriend.email}
         placeholder="Enter Email"
         onChange={handleChange}
       />
@@ -56,4 +55,4 @@ function RegisterForm() {
   );
 }
 
-export default RegisterForm;
+export default AddFriend;

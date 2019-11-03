@@ -26,7 +26,7 @@ function LoginForm() {
       });
   };
 
-  console.log(user, "user");
+  //   console.log(user, "user");
   return (
     <form onSubmit={handleSubmit}>
       {error && <div className="error">{error}</div>}
