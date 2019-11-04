@@ -1,5 +1,12 @@
 import React, { useState } from "react";
+import { Form, Label, FormGroup, Input, Button, Container } from "reactstrap";
+import styled from "styled-components";
 import api from "../utils/api";
+
+const NewCont = styled(Container)`
+  max-width: 40%;
+  margin-top: 5%;
+`;
 
 function LoginForm(props) {
   const [error, setError] = useState();
@@ -28,24 +35,33 @@ function LoginForm(props) {
 
   //   console.log(user, "user");
   return (
-    <form onSubmit={handleSubmit}>
-      {/* {error && <div className="error">{error}</div>} */}
-      <input
-        type="text"
-        name="username"
-        value={user.username}
-        placeholder="Enter username"
-        onChange={handleChange}
-      />
-      <input
-        type="password"
-        name="password"
-        value={user.password}
-        placeholder="Enter password"
-        onChange={handleChange}
-      />
-      <button type="submit">Login</button>
-    </form>
+    <NewCont>
+      <Form onSubmit={handleSubmit}>
+        <FormGroup>
+          <Input
+            type="text"
+            name="username"
+            value={user.username}
+            placeholder="Enter username"
+            onChange={handleChange}
+          />
+        </FormGroup>
+
+        <FormGroup>
+          <Input
+            type="password"
+            name="password"
+            value={user.password}
+            placeholder="Enter password"
+            onChange={handleChange}
+          />
+        </FormGroup>
+
+        <Button size="lg" type="submit">
+          Login
+        </Button>
+      </Form>
+    </NewCont>
   );
 }
 

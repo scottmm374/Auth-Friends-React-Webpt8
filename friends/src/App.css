@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  font-family: "Poiret One", cursive;
+  font-size: 2.5rem;
 }
 
 .App-logo {
@@ -24,4 +26,9 @@
 .error {
   color: red;
   margin-bottom: 20px;
+}
+
+input.form-control {
+  font-weight: bolder;
+  font-size: 1.5rem;
 }

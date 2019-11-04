@@ -6,6 +6,7 @@ const FriendView = props => {
     <div>
       <p>
         {props.name}
+        {props.age}
         {props.email}
       </p>
     </div>
