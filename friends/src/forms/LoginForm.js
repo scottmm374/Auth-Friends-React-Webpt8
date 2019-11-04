@@ -26,14 +26,13 @@ function LoginForm(props) {
       .post("/api/login", user)
       .then(result => {
         localStorage.setItem("token", result.data.payload);
-        props.history.push("/friends-list");
+        props.history.push("/friends");
       })
       .catch(err => {
         setError(err.response.data.message);
       });
   };
 
-  //   console.log(user, "user");
   return (
     <NewCont>
       <Form onSubmit={handleSubmit}>
