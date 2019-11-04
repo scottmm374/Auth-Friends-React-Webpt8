@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-// import axios from "axios";
 import api from "../utils/api";
 
-function LoginForm() {
+function LoginForm(props) {
   const [error, setError] = useState();
   const [user, setUser] = useState({
     username: "",
@@ -20,6 +19,7 @@ function LoginForm() {
       .post("/api/login", user)
       .then(result => {
         localStorage.setItem("token", result.data.payload);
+        props.history.push("/friends-list");
       })
       .catch(err => {
         setError(err.response.data.message);

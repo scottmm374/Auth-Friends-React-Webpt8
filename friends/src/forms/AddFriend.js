@@ -50,7 +50,7 @@ function AddFriend() {
         placeholder="Enter Email"
         onChange={handleChange}
       />
-      <button type="submit">Register</button>
+      <button type="submit">Add Friend</button>
     </form>
   );
 }

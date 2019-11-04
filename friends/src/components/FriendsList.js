@@ -15,7 +15,7 @@ function FriendsList() {
       .catch(err => {
         console.log(err);
       });
-  });
+  }, []);
 
   console.log(friend, "friend");
   return (
