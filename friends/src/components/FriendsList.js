@@ -10,6 +10,7 @@ function FriendsList() {
     api()
       .get("/api/friends")
       .then(res => {
+        console.log(res.data, "res");
         setfriend(res.data);
       })
       .catch(err => {
@@ -17,14 +18,14 @@ function FriendsList() {
       });
   }, []);
 
-  console.log(friend, "friend");
+  console.log("friend", friend);
   return (
     <div>
-      {friend.map(friend => {
+      {friend.map(friend => (
         <div key={friend.id}>
           <FriendView name={friend.name} email={friend.email} />
-        </div>;
-      })}
+        </div>
+      ))}
     </div>
   );
 }

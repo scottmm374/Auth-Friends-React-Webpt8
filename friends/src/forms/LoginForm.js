@@ -29,7 +29,7 @@ function LoginForm(props) {
   //   console.log(user, "user");
   return (
     <form onSubmit={handleSubmit}>
-      {error && <div className="error">{error}</div>}
+      {/* {error && <div className="error">{error}</div>} */}
       <input
         type="text"
         name="username"

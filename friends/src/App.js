@@ -4,7 +4,7 @@ import ProtectedRoutes from "./utils/ProtectedRoutes";
 import { getToken } from "./utils/api";
 import LoginForm from "./forms/LoginForm";
 import AddFriend from "./forms/AddFriend";
-import FriendView from "./components/FriendView";
+import FriendsList from "./components/FriendsList";
 import "./App.css";
 
 function App() {
@@ -18,9 +18,9 @@ function App() {
         {signedIn && <Link to="/friends">Friends list</Link>}
       </nav>
       <section>
+        <ProtectedRoutes exact path="/friends" component={FriendsList} />
         <Route path="/login" component={LoginForm} />
         <ProtectedRoutes exact path="/add-friend" component={AddFriend} />
-        <ProtectedRoutes exact path="/friends" component={FriendView} />
       </section>
     </div>
   );
