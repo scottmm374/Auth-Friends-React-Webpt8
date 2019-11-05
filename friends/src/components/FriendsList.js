@@ -23,7 +23,11 @@ function FriendsList() {
     <div>
       {friend.map(friend => (
         <div key={friend.id}>
-          <FriendView name={friend.name} email={friend.email} />
+          <FriendView
+            name={friend.name}
+            email={friend.email}
+            age={friend.age}
+          />
         </div>
       ))}
     </div>

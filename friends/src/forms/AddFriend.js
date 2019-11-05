@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Label, FormGroup, Input, Button, Container } from "reactstrap";
+import { Form, FormGroup, Input, Button, Container } from "reactstrap";
 import styled from "styled-components";
 import api from "../utils/api";
 
@@ -8,7 +8,7 @@ const NewCont = styled(Container)`
   margin-top: 5%;
 `;
 
-function AddFriend() {
+function AddFriend(props) {
   const [newFriend, setNewFriend] = useState({
     name: "",
     age: "",
@@ -25,7 +25,8 @@ function AddFriend() {
     api()
       .post("/api/friends", newFriend)
       .then(result => {
-        console.log(result.data);
+        console.log(result);
+        props.history.push("/friends");
       })
       .catch(err => {
         console.log(err);
